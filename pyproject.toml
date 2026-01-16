@@ -12,4 +12,4 @@ license = {text = "MIT"}
 authors = [{name = "Hardik Dhingra"}]
 
 [project.scripts]
-errorbuddy = "errorbuddy.cli:main"
+errorbuddy = "errorbuddy.cli:main"                      
