@@ -1,4 +1,4 @@
-from easyerrors import explain
+from errorbuddy import explain
 
 try:
     x = 10 + "5"

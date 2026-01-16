@@ -1,6 +1,6 @@
 import sys
 import runpy
-from easyerrors.explainer import explain
+from errorbuddy.explainer import explain
 
 def main():
     if len(sys.argv) < 2:
