@@ -8,6 +8,7 @@ errorbuddy.egg-info/PKG-INFO
 errorbuddy.egg-info/SOURCES.txt
 errorbuddy.egg-info/dependency_links.txt
 errorbuddy.egg-info/entry_points.txt
+errorbuddy.egg-info/requires.txt
 errorbuddy.egg-info/top_level.txt
 tests/test_basic.py
 tests/test_error.py

@@ -1,11 +1,17 @@
 Metadata-Version: 2.4
 Name: errorbuddy
-Version: 0.1.1
-Summary: Explain Python errors in simple English
+Version: 0.2.0
+Summary: Human-friendly Python error explanations with smart hints and CLI support
 Author: Hardik Dhingra
 License: MIT
+Keywords: python,errors,debugging,cli,developer-tools
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
+Requires-Dist: colorama
 
 Versioning Strategy
 	•	0.1.0 → First public release
