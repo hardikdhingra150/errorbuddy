@@ -3,7 +3,7 @@ import os
 from .explainer import explain
 
 
-# 🔍 Smart file finder
+# 🔍 Smart file finder (clean + fast)
 def find_file(filename):
     # Add .py if missing
     if not filename.endswith(".py"):
@@ -13,15 +13,15 @@ def find_file(filename):
     if os.path.exists(filename):
         return os.path.abspath(filename)
 
-    # 2️⃣ Search locations
+    # 2️⃣ Priority-based search paths
     search_paths = [
-        os.getcwd(),
+        os.getcwd(),                      # highest priority
         os.path.expanduser("~/Desktop"),
         os.path.expanduser("~/Documents"),
         os.path.expanduser("~/Downloads"),
     ]
 
-    matches = []
+    found_files = set()  # ✅ removes duplicates
 
     for base_path in search_paths:
         if not os.path.exists(base_path):
@@ -29,25 +29,19 @@ def find_file(filename):
 
         for root, dirs, files in os.walk(base_path):
             if filename in files:
-                matches.append(os.path.join(root, filename))
+                found_files.add(os.path.join(root, filename))
 
-    # 3️⃣ Handle results
-    if len(matches) == 1:
-        return matches[0]
+    if not found_files:
+        return None
 
-    elif len(matches) > 1:
-        print(f"⚠️ Multiple files found for '{filename}':")
-        for i, path in enumerate(matches, 1):
-            print(f"{i}. {path}")
+    # 3️⃣ Convert to list
+    found_files = list(found_files)
 
-        try:
-            choice = int(input("Select file number: "))
-            return matches[choice - 1]
-        except:
-            print("❌ Invalid choice.")
-            return None
+    # 4️⃣ Smart selection (no user input)
+    # Prefer closest match (shortest path)
+    found_files.sort(key=lambda x: len(x))
 
-    return None
+    return found_files[0]
 
 
 # 🚀 CLI ENTRY
