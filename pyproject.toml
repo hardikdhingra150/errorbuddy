@@ -4,12 +4,33 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "errorbuddy"
-version = "0.1.1"
-description = "Explain Python errors in simple English"
+version = "0.2.0"
+description = "Human-friendly Python error explanations with smart hints and CLI support"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
-authors = [{name = "Hardik Dhingra"}]
+license = { text = "MIT" }
 
+authors = [
+  { name = "Hardik Dhingra" }
+]
+
+# 🔥 Dependencies (IMPORTANT)
+dependencies = [
+  "colorama"
+]
+
+# 🔍 Optional metadata (makes your package look professional on PyPI)
+keywords = ["python", "errors", "debugging", "cli", "developer-tools"]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+
+
+# 🚀 CLI command
 [project.scripts]
-errorbuddy = "errorbuddy.cli:main"                      
+errorbuddy = "errorbuddy.cli:main"
