@@ -1,151 +1,153 @@
 ERROR_RULES = {
 
-    
+    # 🔴 TYPE & VALUE
     "TypeError": {
         "explanation": "You used incompatible data types together.",
-        "fix": "Check variable types or convert them using int(), str(), float(), etc.",
-        "example": "int('5') + 10"
+        "fix": "Ensure all operands are of compatible types or convert them.",
+        "example": "int('5') + 10",
+        "hint": "Check if you're mixing int, str, list, etc."
     },
 
     "ValueError": {
-        "explanation": "The value is of correct type but has an invalid value.",
-        "fix": "Check user input or function arguments.",
-        "example": "int('123')"
+        "explanation": "The value is of correct type but invalid.",
+        "fix": "Ensure the value matches the expected format.",
+        "example": "int('123')",
+        "hint": "Common in int(), float(), or unpacking."
     },
 
-    
+    # 🔴 INDEX / KEY
     "IndexError": {
-        "explanation": "You tried to access a list or tuple index that does not exist.",
-        "fix": "Check the length of the list before accessing.",
-        "example": "if i < len(my_list): print(my_list[i])"
+        "explanation": "Index is out of range.",
+        "fix": "Check list length before accessing index.",
+        "example": "if i < len(arr): arr[i]"
     },
 
     "KeyError": {
-        "explanation": "You tried to access a dictionary key that does not exist.",
-        "fix": "Use dict.get() or check if key exists.",
+        "explanation": "Key not found in dictionary.",
+        "fix": "Use .get() or check if key exists.",
         "example": "my_dict.get('key')"
     },
 
-    
+    # 🔴 NAME / ATTRIBUTE
     "NameError": {
-        "explanation": "You used a variable or function name that is not defined.",
-        "fix": "Check spelling or define the variable before use.",
+        "explanation": "Variable or function is not defined.",
+        "fix": "Define it before use or check spelling.",
         "example": "x = 10"
     },
 
     "AttributeError": {
-        "explanation": "The object does not have the attribute or method you tried to use.",
-        "fix": "Check object type or available attributes.",
+        "explanation": "Object doesn't have this method/attribute.",
+        "fix": "Check object type and available methods.",
         "example": "'hello'.upper()"
     },
 
-   
+    # 🔴 IMPORT
     "ImportError": {
-        "explanation": "Python could not import the module or object.",
-        "fix": "Check module name or install missing package.",
+        "explanation": "Failed to import module.",
+        "fix": "Check module name or installation.",
         "example": "pip install package_name"
     },
 
     "ModuleNotFoundError": {
-        "explanation": "The module you are trying to import does not exist.",
-        "fix": "Install the module or check spelling.",
+        "explanation": "Module not installed.",
+        "fix": "Install using pip.",
         "example": "pip install requests"
     },
 
-   
+    # 🔴 FILE HANDLING
     "FileNotFoundError": {
-        "explanation": "The file you are trying to access does not exist.",
+        "explanation": "File does not exist at given path.",
         "fix": "Check file path or working directory.",
-        "example": "open('data.txt')"
+        "example": "open('file.txt')"
     },
 
     "PermissionError": {
-        "explanation": "You do not have permission to access this file or resource.",
-        "fix": "Change file permissions or run with correct access.",
+        "explanation": "No permission to access file.",
+        "fix": "Change permissions or run with correct access.",
         "example": "chmod +r file.txt"
     },
 
     "IsADirectoryError": {
-        "explanation": "You tried to open a directory as a file.",
-        "fix": "Use correct file path instead of directory.",
+        "explanation": "Tried to open a directory as file.",
+        "fix": "Provide correct file path.",
         "example": "open('file.txt')"
     },
 
-   
+    # 🔴 MATH
     "ZeroDivisionError": {
-        "explanation": "You tried to divide a number by zero.",
+        "explanation": "Division by zero is not allowed.",
         "fix": "Ensure denominator is not zero.",
         "example": "if b != 0: a / b"
     },
 
     "OverflowError": {
-        "explanation": "The calculation result is too large to be represented.",
-        "fix": "Use smaller numbers or optimized logic.",
+        "explanation": "Result too large to handle.",
+        "fix": "Use smaller values or optimize logic.",
         "example": "math.exp(10)"
     },
 
-   
+    # 🔴 ASSERT / LOGIC
     "AssertionError": {
-        "explanation": "An assert condition failed.",
-        "fix": "Check the logic of your assert statement.",
+        "explanation": "Assertion condition failed.",
+        "fix": "Check your condition logic.",
         "example": "assert x > 0"
     },
 
-   
+    # 🔴 SYNTAX
     "SyntaxError": {
-        "explanation": "Your Python code syntax is invalid.",
-        "fix": "Check missing colons, brackets, or quotes.",
+        "explanation": "Invalid Python syntax.",
+        "fix": "Check missing symbols (:, (), '').",
         "example": "if x > 5:"
     },
 
     "IndentationError": {
-        "explanation": "Your code indentation is incorrect.",
-        "fix": "Ensure consistent indentation (spaces or tabs).",
-        "example": "use 4 spaces per block"
+        "explanation": "Incorrect indentation.",
+        "fix": "Use consistent spacing.",
+        "example": "use 4 spaces"
     },
 
     "TabError": {
-        "explanation": "You mixed tabs and spaces in indentation.",
-        "fix": "Use only spaces or only tabs consistently.",
+        "explanation": "Mixed tabs and spaces.",
+        "fix": "Use only spaces.",
         "example": "convert tabs to spaces"
     },
 
-   
+    # 🔴 ENCODING
     "UnicodeDecodeError": {
-        "explanation": "Python failed to decode a byte sequence into text.",
-        "fix": "Specify correct encoding like utf-8.",
-        "example": "open('file.txt', encoding='utf-8')"
+        "explanation": "Failed to decode text.",
+        "fix": "Specify correct encoding.",
+        "example": "open(file, encoding='utf-8')"
     },
 
     "UnicodeEncodeError": {
-        "explanation": "Python failed to encode text into bytes.",
-        "fix": "Ensure characters are supported by encoding.",
+        "explanation": "Failed to encode text.",
+        "fix": "Use supported encoding.",
         "example": "text.encode('utf-8')"
     },
 
-   
+    # 🔴 MEMORY / RECURSION
     "MemoryError": {
-        "explanation": "The program ran out of memory.",
-        "fix": "Optimize data usage or process in chunks.",
-        "example": "use generators instead of lists"
+        "explanation": "Program ran out of memory.",
+        "fix": "Use generators or optimize data.",
+        "example": "use yield instead of list"
     },
 
     "RecursionError": {
-        "explanation": "Function exceeded maximum recursion depth.",
-        "fix": "Add a base condition or reduce recursion.",
+        "explanation": "Too many recursive calls.",
+        "fix": "Add base condition.",
         "example": "if n == 0: return"
     },
 
-    
+    # 🔴 RUNTIME
     "TimeoutError": {
-        "explanation": "The operation took too long to complete.",
-        "fix": "Optimize code or increase timeout.",
+        "explanation": "Operation took too long.",
+        "fix": "Optimize logic or increase timeout.",
         "example": "set timeout parameter"
     },
 
     "RuntimeError": {
-        "explanation": "A generic runtime error occurred.",
-        "fix": "Check logic or unexpected conditions.",
+        "explanation": "Unexpected runtime issue.",
+        "fix": "Check logic and flow.",
         "example": "review stack trace"
     }
 }
